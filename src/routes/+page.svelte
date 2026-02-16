@@ -9,6 +9,11 @@
 
 <main class="min-h-[calc(100vh-4px)] flex items-center justify-center px-6">
   <div class="text-center max-w-md">
+    <img
+      src="/icon-rounded.svg"
+      alt="crafts.software"
+      class="mx-auto mb-6 h-20 w-20"
+    />
     <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
       crafts.software
     </h1>
