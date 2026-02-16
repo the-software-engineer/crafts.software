@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <!-- Kiln on warm stone/sand -->
-  <rect width="512" height="512" rx="96" fill="#F5EDE3"/>
+  <!-- Kiln cream + deep teal gem for contrast pop -->
+  <rect width="512" height="512" rx="96" fill="#FDF6EC"/>
+  <rect x="6" y="6" width="500" height="500" rx="92" fill="none" stroke="#BF4A1C" stroke-width="3" stroke-opacity="0.15"/>
   <path d="M140 150 Q180 150 180 190 L180 230 Q180 256 160 256 Q180 256 180 282 L180 322 Q180 362 140 362"
         stroke="#BF4A1C" stroke-width="28" stroke-linecap="round" fill="none"/>
   <path d="M372 150 Q332 150 332 190 L332 230 Q332 256 352 256 Q332 256 332 282 L332 322 Q332 362 372 362"
         stroke="#BF4A1C" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <polygon points="256,200 296,256 256,312 216,256" fill="#E8913A"/>
-  <polygon points="256,200 296,256 256,256 216,256" fill="#F2B05E"/>
+  <polygon points="256,200 296,256 256,312 216,256" fill="#0D9488"/>
+  <polygon points="256,200 296,256 256,256 216,256" fill="#14B8A6"/>
 </svg>
