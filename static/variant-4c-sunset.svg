@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Sunset gradient braces (coral to amber), simple hot gem -->
+  <rect width="512" height="512" rx="96" fill="#FDF6EC"/>
+  <defs>
+    <linearGradient id="brace-sunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="50%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <path d="M140 150 Q180 150 180 190 L180 230 Q180 256 160 256 Q180 256 180 282 L180 322 Q180 362 140 362"
+        stroke="url(#brace-sunset)" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <path d="M372 150 Q332 150 332 190 L332 230 Q332 256 352 256 Q332 256 332 282 L332 322 Q332 362 372 362"
+        stroke="url(#brace-sunset)" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <polygon points="256,200 296,256 256,312 216,256" fill="#E85D26"/>
+  <polygon points="256,200 296,256 256,256 216,256" fill="#FF8C42"/>
+</svg>
