@@ -8,9 +8,11 @@
       <stop offset="100%" stop-color="#F97316"/>
     </linearGradient>
   </defs>
-  <path d="M140 150 Q180 150 180 190 L180 230 Q180 256 160 256 Q180 256 180 282 L180 322 Q180 362 140 362"
+  <!-- Left brace { : top-right, kicks left at middle, bottom-right -->
+  <path d="M190 150 Q170 150 170 190 L170 225 Q170 256 140 256 Q170 256 170 287 L170 322 Q170 362 190 362"
         stroke="url(#brace-sunset)" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <path d="M372 150 Q332 150 332 190 L332 230 Q332 256 352 256 Q332 256 332 282 L332 322 Q332 362 372 362"
+  <!-- Right brace } : top-left, kicks right at middle, bottom-left -->
+  <path d="M322 150 Q342 150 342 190 L342 225 Q342 256 372 256 Q342 256 342 287 L342 322 Q342 362 322 362"
         stroke="url(#brace-sunset)" stroke-width="28" stroke-linecap="round" fill="none"/>
   <polygon points="256,200 296,256 256,312 216,256" fill="#E85D26"/>
   <polygon points="256,200 296,256 256,256 216,256" fill="#FF8C42"/>
