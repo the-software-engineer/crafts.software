@@ -1,13 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <!-- Curly braces with hammer: code + craft -->
-  <rect width="512" height="512" rx="96" fill="#111827"/>
-  <!-- Left curly brace -->
-  <path d="M140 150 Q180 150 180 190 L180 230 Q180 256 160 256 Q180 256 180 282 L180 322 Q180 362 140 362"
-        stroke="#F59E0B" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <!-- Right curly brace -->
-  <path d="M372 150 Q332 150 332 190 L332 230 Q332 256 352 256 Q332 256 332 282 L332 322 Q332 362 372 362"
-        stroke="#F59E0B" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <!-- Center diamond/gem (crafted) -->
-  <polygon points="256,200 296,256 256,312 216,256" fill="#E5E7EB"/>
-  <polygon points="256,200 296,256 256,256 216,256" fill="#F9FAFB"/>
+  <!-- Sunset gradient braces (coral to amber), simple hot gem -->
+  <rect width="512" height="512" rx="96" fill="#FDF6EC"/>
+  <defs>
+    <linearGradient id="brace-sunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="50%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <!-- Left brace } : kicks right at middle -->
+  <path d="M170 150 Q190 150 190 190 L190 225 Q190 256 220 256 Q190 256 190 287 L190 322 Q190 362 170 362"
+        stroke="url(#brace-sunset)" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <!-- Right brace { : kicks left at middle -->
+  <path d="M342 150 Q322 150 322 190 L322 225 Q322 256 292 256 Q322 256 322 287 L322 322 Q322 362 342 362"
+        stroke="url(#brace-sunset)" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <polygon points="256,200 296,256 256,312 216,256" fill="#E85D26"/>
+  <polygon points="256,200 296,256 256,256 216,256" fill="#FF8C42"/>
 </svg>
