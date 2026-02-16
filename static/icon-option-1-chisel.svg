@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Chisel: craftsmanship tool -->
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <g transform="translate(256,256) rotate(-45)">
+    <!-- Handle -->
+    <rect x="-32" y="-180" width="64" height="140" rx="8" fill="#F59E0B"/>
+    <rect x="-32" y="-60" width="64" height="20" rx="4" fill="#D97706"/>
+    <!-- Blade -->
+    <rect x="-24" y="-40" width="48" height="200" rx="2" fill="#E5E7EB"/>
+    <!-- Edge -->
+    <polygon points="-24,160 24,160 16,180 -16,180" fill="#F9FAFB"/>
+  </g>
+</svg>

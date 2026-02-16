@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Anvil: forging/crafting -->
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <!-- Anvil top (horn + face) -->
+  <path d="M120 260 Q120 220 180 220 L360 220 Q380 220 380 240 L380 260 Z" fill="#9CA3AF"/>
+  <!-- Anvil face highlight -->
+  <rect x="160" y="220" width="220" height="40" rx="4" fill="#D1D5DB"/>
+  <!-- Anvil body -->
+  <path d="M160 260 L160 320 Q160 340 180 340 L340 340 Q360 340 360 320 L360 260 Z" fill="#6B7280"/>
+  <!-- Anvil base -->
+  <rect x="140" y="340" width="240" height="24" rx="6" fill="#4B5563"/>
+  <!-- Horn -->
+  <path d="M120 260 Q80 240 80 240 Q80 230 120 220 Z" fill="#9CA3AF"/>
+  <!-- Spark dots -->
+  <circle cx="200" cy="180" r="6" fill="#F59E0B"/>
+  <circle cx="260" cy="160" r="4" fill="#FBBF24"/>
+  <circle cx="310" cy="175" r="5" fill="#F59E0B"/>
+  <circle cx="240" cy="145" r="3" fill="#FDE68A"/>
+</svg>

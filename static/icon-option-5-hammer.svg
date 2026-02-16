@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Hammer: craft tool, clean and bold -->
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <!-- Handle -->
+  <rect x="232" y="220" width="48" height="180" rx="10" fill="#F59E0B"/>
+  <!-- Handle grip lines -->
+  <line x1="244" y1="340" x2="268" y2="340" stroke="#D97706" stroke-width="4"/>
+  <line x1="244" y1="356" x2="268" y2="356" stroke="#D97706" stroke-width="4"/>
+  <line x1="244" y1="372" x2="268" y2="372" stroke="#D97706" stroke-width="4"/>
+  <!-- Hammer head -->
+  <rect x="140" y="130" width="232" height="100" rx="16" fill="#D1D5DB"/>
+  <!-- Hammer face (striking surface) -->
+  <rect x="140" y="130" width="40" height="100" rx="16" fill="#E5E7EB"/>
+  <!-- Hammer peen (other side) -->
+  <path d="M372 150 L392 180 L372 210 Z" fill="#9CA3AF"/>
+  <!-- Impact spark -->
+  <line x1="110" y1="160" x2="90" y2="140" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
+  <line x1="105" y1="180" x2="80" y2="180" stroke="#FBBF24" stroke-width="4" stroke-linecap="round"/>
+  <line x1="110" y1="200" x2="90" y2="216" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
+</svg>
