@@ -17,6 +17,11 @@ type Tally = {
 	count: number;
 };
 
+// This is a small, short-lived poll for friends (expected tens of ballots),
+// not a system meant to scale. This cap is just a safety valve so a stray
+// flood of ballots can't make a request scan forever.
+const MAX_BALLOTS_SCANNED = 2000;
+
 // Reads every ballot key from KV and counts votes per name.
 // Volume is expected to stay tiny (a poll page), but the cursor loop
 // handles pagination correctly even if that assumption is wrong.
@@ -27,10 +32,12 @@ async function computeTallies(
 	let ballots = 0;
 	let cursor: string | undefined;
 
-	for (;;) {
+	outer: for (;;) {
 		const list = await kv.list({ prefix: 'ballot:', cursor });
 
 		for (const key of list.keys) {
+			if (ballots >= MAX_BALLOTS_SCANNED) break outer;
+
 			const value = await kv.get(key.name);
 			if (!value) continue;
 
@@ -79,6 +86,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		Array.isArray(names) &&
 		names.length >= 1 &&
 		names.length <= MAX_NAME_VOTE_SELECTIONS &&
+		new Set(names).size === names.length &&
 		names.every(
 			(name): name is string =>
 				typeof name === 'string' &&
@@ -104,6 +112,15 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		JSON.stringify(ballot)
 	);
 
-	const { tallies, ballots } = await computeTallies(platform.env.NAME_VOTES);
+	// The ballot is already saved at this point, so a failure below must not
+	// turn a successful vote into an error response.
+	let tallies: Tally[] = [];
+	let ballots = 0;
+	try {
+		({ tallies, ballots } = await computeTallies(platform.env.NAME_VOTES));
+	} catch (err) {
+		console.error('computeTallies failed after vote was recorded', err);
+	}
+
 	return json({ ok: true, tallies, ballots });
 };

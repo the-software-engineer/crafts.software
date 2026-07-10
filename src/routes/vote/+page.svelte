@@ -71,8 +71,12 @@ async function castVote() {
 
 		tallies = data.tallies ?? [];
 		ballots = data.ballots ?? 0;
-		localStorage.setItem(STORAGE_KEY, '1');
 		phase = 'results';
+		try {
+			localStorage.setItem(STORAGE_KEY, '1');
+		} catch {
+			// Soft deduplication is unavailable in this browser. The vote still counted.
+		}
 	} catch {
 		errorMessage = 'Could not reach the server. Try again.';
 		phase = 'vote';
@@ -80,9 +84,13 @@ async function castVote() {
 }
 
 onMount(() => {
-	if (localStorage.getItem(STORAGE_KEY)) {
-		phase = 'results';
-		loadTallies();
+	try {
+		if (localStorage.getItem(STORAGE_KEY)) {
+			phase = 'results';
+			loadTallies();
+		}
+	} catch {
+		// Storage is unavailable; leave the vote form usable.
 	}
 });
 </script>
