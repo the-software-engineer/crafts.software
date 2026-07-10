@@ -138,6 +138,14 @@ onMount(() => {
 				loading="lazy"
 				class="screen"
 			/>
+			<img
+				src="/vote/widgets.webp"
+				alt="Home screen widget options for Palseer"
+				width="980"
+				height="1300"
+				loading="lazy"
+				class="screen wide"
+			/>
 		</div>
 
 		{#if phase === 'results'}
@@ -241,6 +249,10 @@ onMount(() => {
 		border-radius: 16px;
 		border: 1px solid #333947;
 		background: #1e222c;
+	}
+
+	.screen.wide {
+		max-width: 620px;
 	}
 
 	.hint {
