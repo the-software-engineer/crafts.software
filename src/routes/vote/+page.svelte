@@ -99,7 +99,7 @@ onMount(() => {
 	<title>Name this app</title>
 	<meta
 		name="description"
-		content="Help pick a new name for Palseer, a small screen-time app for friends. Vote for up to three names you like."
+		content="Help pick a new name for Palseer, a small screen-time app for friends. Vote for up to five names you like."
 	/>
 	<meta name="robots" content="noindex" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -117,7 +117,7 @@ onMount(() => {
 			<p>
 				Palseer is a small app for cutting screen time together. You pick the apps you want to use less, and your
 				daily time on them is visible to a small circle of friends. Lowest time tops the leaderboard. Gentle
-				nudges, no shame. It needs a better name. Pick up to 3 you like.
+				nudges, no shame. It needs a better name. Pick up to 5 you like.
 			</p>
 		</header>
 

@@ -26,4 +26,4 @@ export const NAME_VOTE_OPTIONS = [
 
 export type NameVoteOption = (typeof NAME_VOTE_OPTIONS)[number];
 
-export const MAX_NAME_VOTE_SELECTIONS = 3;
+export const MAX_NAME_VOTE_SELECTIONS = 5;
