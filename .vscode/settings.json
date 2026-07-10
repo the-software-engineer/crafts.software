@@ -1,24 +1,24 @@
 {
-  "editor.formatOnSave": true,
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
-  "svelte.plugin.svelte.format.config.printWidth": 120,
-  "svelte.plugin.svelte.format.config.svelteSortOrder": "options-scripts-markup-styles",
-  "svelte.plugin.svelte.format.config.svelteStrictMode": true,
-  "svelte.plugin.svelte.format.enable": true,
-  "svelte.plugin.typescript.enable": true,
-  "files.exclude": {
-    "**/node_modules": true,
-    "**/.svelte-kit": true,
-    "**/build": true
-  },
-  "files.associations": { "*.css": "tailwindcss" },
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "css.lint.unknownAtRules": "ignore",
-  "scss.lint.unknownAtRules": "ignore"
+	"editor.formatOnSave": true,
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"svelte.plugin.svelte.format.config.printWidth": 120,
+	"svelte.plugin.svelte.format.config.svelteSortOrder": "options-scripts-markup-styles",
+	"svelte.plugin.svelte.format.config.svelteStrictMode": true,
+	"svelte.plugin.svelte.format.enable": true,
+	"svelte.plugin.typescript.enable": true,
+	"files.exclude": {
+		"**/node_modules": true,
+		"**/.svelte-kit": true,
+		"**/build": true
+	},
+	"files.associations": { "*.css": "tailwindcss" },
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"css.lint.unknownAtRules": "ignore",
+	"scss.lint.unknownAtRules": "ignore"
 }

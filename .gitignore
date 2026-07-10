@@ -9,6 +9,9 @@
 node_modules
 dist
 
+# Cloudflare
+.wrangler
+
 # VS Code
 .vscode/*
 !.vscode/settings.json
@@ -26,7 +29,3 @@ Thumbs.db
 .env
 .env.*
 !.env.example
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/

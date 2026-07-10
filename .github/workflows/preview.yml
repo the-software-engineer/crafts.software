@@ -1,0 +1,81 @@
+name: PR Preview
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    environment: preview
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build
+        run: bun run build
+
+      - name: Deploy preview to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy --branch=${{ github.ref_name }} --commit-dirty=true
+
+      - name: Compute stable branch alias URL
+        id: alias
+        run: |
+          PROJECT=$(grep -E '^name = ' wrangler.toml | head -1 | sed 's/^name = "\(.*\)"$/\1/')
+          BRANCH_SLUG=$(echo "${{ github.ref_name }}" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+          echo "url=https://${BRANCH_SLUG}.${PROJECT}.pages.dev" >> $GITHUB_OUTPUT
+
+      - name: Find PR for this branch
+        id: find-pr
+        run: |
+          PR_NUMBER=$(gh pr list --head "${{ github.ref_name }}" --json number --jq '.[0].number // empty')
+          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Find existing comment
+        if: steps.find-pr.outputs.pr_number
+        uses: peter-evans/find-comment@v3
+        id: find-comment
+        with:
+          issue-number: ${{ steps.find-pr.outputs.pr_number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- cf-pages-preview -->'
+
+      - name: Post or update preview comment
+        if: steps.find-pr.outputs.pr_number
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ steps.find-pr.outputs.pr_number }}
+          edit-mode: replace
+          body: |
+            <!-- cf-pages-preview -->
+            ## Preview Deployment
+
+            | Type | URL |
+            |------|-----|
+            | Branch (stable, share this) | ${{ steps.alias.outputs.url }} |
+            | This commit | ${{ steps.deploy.outputs.deployment-url }} |
+
+            **Branch:** `${{ github.ref_name }}`
+            **Commit:** `${{ github.sha }}`
+
+            ---
+            <sub>The branch URL stays the same and shows the latest push. The commit URL pins to this exact build.</sub>

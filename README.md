@@ -1,46 +1,41 @@
-<p align="center">Template for Svelte with GitHub pages.</p>
+<p align="center">crafts.software — the landing page for The Software Engineer Ltd.</p>
 
-<p align="center"><em>Check the result of this basic version out at <a href="https://spenhouet.com/the-software-engineer-site/">spenhouet.com/the-software-engineer-site</a>.</em></p>
-
-Quickstart project to develop and deploy a static Svelte page to GitHub pages.
+SvelteKit site deployed to Cloudflare Pages.
 
 ## Features
 
-- Static page builds
-- GitHub pages support
-- Playwright for e2e testing
+- SvelteKit + Svelte 5
+- Cloudflare Pages via `@sveltejs/adapter-cloudflare`
 - Tailwind for styling
-- Headless UI for basic UI components
-- PostCSS support
-- Typed Javascript
+- Bun as the package manager and task runner
 
 ## How to locally serve the page?
 
-To see if everything is working you can start it up like that.
-
 ```shell
-npm run dev -- --open
+bun install
+bun run dev -- --open
 ```
 
-If everything worked correct, your browser should open `http://localhost:3000/`.
-
-You can also use the VS code launch configuration `Debug Svelte App` via `F5` to debug the application.
-
-## How do I run tests?
-
-Execute:
+## How do I run checks?
 
 ```shell
-npm test
+bun run lint
+bun run check
 ```
 
 ## Building
 
-To create a production version of your app:
+To create a production build:
 
-```bash
-npm run build
+```shell
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
-Note: Because of absolute path resolution of assets, the static page does not work on local execution.
+You can preview the production build with `bun run preview`.
+
+## Deploying
+
+Pushes to `main` deploy to Cloudflare Pages via `.github/workflows/deploy.yml`.
+Every other branch gets a preview deployment via `.github/workflows/preview.yml`,
+with the URL posted as a PR comment. See `wrangler.toml` for the Pages project
+config and the `NAME_VOTES` KV binding used by the `/vote` name-vote page.
