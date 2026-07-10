@@ -1,31 +1,12 @@
-import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-cloudflare';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  kit: {
-    adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: null,
-      precompress: false,
-    }),
-
-    prerender: {
-      enabled: true,
-    },
-  },
-
-  preprocess: [
-    preprocess({
-      scss: {
-        prependData: '@use "src/variables.scss" as *;',
-      },
-
-      postcss: true,
-      preserve: ['ld+json'],
-    }),
-  ],
+	preprocess: vitePreprocess(),
+	kit: {
+		adapter: adapter()
+	}
 };
 
 export default config;

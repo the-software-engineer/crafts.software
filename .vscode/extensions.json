@@ -1,8 +1,7 @@
 {
-  "recommendations": [
-    "ms-playwright.playwright",
-    "esbenp.prettier-vscode",
-    "svelte.svelte-vscode",
-    "bradlc.vscode-tailwindcss"
-  ]
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"bradlc.vscode-tailwindcss",
+		"biomejs.biome"
+	]
 }

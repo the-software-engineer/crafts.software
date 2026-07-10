@@ -1,7 +1,9 @@
 <script>
-  import '../app.css';
-  import Header from '../lib/components/header.svelte';
+import '../app.css';
+import Header from '../lib/components/header.svelte';
+
+let { children } = $props();
 </script>
 
 <Header />
-<slot />
+{@render children()}

@@ -1,10 +1,14 @@
-/// <reference types="@sveltejs/kit" />
+/// <reference types="@cloudflare/workers-types" />
 
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-declare namespace App {
-  // interface Locals {}
-  // interface Platform {}
-  // interface Session {}
-  // interface Stuff {}
+// See https://svelte.dev/docs/kit/types#app.d.ts
+declare global {
+	namespace App {
+		interface Platform {
+			env: {
+				NAME_VOTES: KVNamespace;
+			};
+		}
+	}
 }
+
+export {};

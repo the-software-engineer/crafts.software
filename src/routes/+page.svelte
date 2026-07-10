@@ -1,11 +1,7 @@
-<script>
-  import SvelteSeo from 'svelte-seo';
-</script>
-
-<SvelteSeo
-  title="crafts.software — The Software Engineer Ltd."
-  description="The Software Engineer Ltd. Software consultancy by Theo Gregory."
-/>
+<svelte:head>
+  <title>crafts.software - The Software Engineer Ltd.</title>
+  <meta name="description" content="The Software Engineer Ltd. Software consultancy by Theo Gregory." />
+</svelte:head>
 
 <main class="min-h-[calc(100vh-4px)] flex items-center justify-center px-6">
   <div class="text-center max-w-md">
