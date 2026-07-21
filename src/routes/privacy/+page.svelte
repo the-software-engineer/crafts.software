@@ -1,6 +1,6 @@
 <script lang="ts">
 // Email encoded as base64 to deter scrapers. Decoded only on click.
-const contactEmailBase64 = 'dGhlb0BjcmFmdHMuc29mdHdhcmU=';
+const contactEmailBase64 = 'c2l0ZUBjcmFmdHMuc29mdHdhcmU=';
 
 function handleEmailClick() {
 	const email = atob(contactEmailBase64);
