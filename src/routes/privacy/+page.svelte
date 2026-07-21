@@ -1,3 +1,13 @@
+<script lang="ts">
+// Email encoded as base64 to deter scrapers. Decoded only on click.
+const contactEmailBase64 = 'dGhlb0BjcmFmdHMuc29mdHdhcmU=';
+
+function handleEmailClick() {
+	const email = atob(contactEmailBase64);
+	window.location.href = `mailto:${email}`;
+}
+</script>
+
 <svelte:head>
   <title>Privacy Policy - crafts.software</title>
   <meta
@@ -87,11 +97,12 @@
       <section>
         <h2 class="text-lg font-semibold text-gray-900">Contact</h2>
         <p class="mt-2 leading-relaxed">
-          Questions about this policy or your data? Email
-          <a
-            href="mailto:theo@crafts.software"
-            class="font-medium text-gray-900 underline underline-offset-2 hover:text-gray-600"
-            >theo@crafts.software</a
+          Questions about this policy or your data?
+          <button
+            type="button"
+            onclick={handleEmailClick}
+            class="cursor-pointer font-medium text-gray-900 underline underline-offset-2 hover:text-gray-600"
+            >Email us</button
           >.
         </p>
       </section>
