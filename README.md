@@ -38,4 +38,4 @@ You can preview the production build with `bun run preview`.
 Pushes to `main` deploy to Cloudflare Pages via `.github/workflows/deploy.yml`.
 Every other branch gets a preview deployment via `.github/workflows/preview.yml`,
 with the URL posted as a PR comment. See `wrangler.toml` for the Pages project
-config and the `NAME_VOTES` KV binding used by the `/vote` name-vote page.
+config.
