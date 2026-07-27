@@ -4,9 +4,7 @@
 declare global {
 	namespace App {
 		interface Platform {
-			env: {
-				NAME_VOTES: KVNamespace;
-			};
+			env: Record<string, never>;
 		}
 	}
 }

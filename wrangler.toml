@@ -2,18 +2,3 @@ name = "crafts-software"
 compatibility_date = "2026-05-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".svelte-kit/cloudflare"
-
-# Local development (wrangler pages dev). Uses preview namespace.
-[[kv_namespaces]]
-binding = "NAME_VOTES"
-id = "a6e971da011d4a768006f06dbc1fec3d"
-
-# Preview deployments (non-main branches)
-[[env.preview.kv_namespaces]]
-binding = "NAME_VOTES"
-id = "a6e971da011d4a768006f06dbc1fec3d"
-
-# Production deployments (main branch)
-[[env.production.kv_namespaces]]
-binding = "NAME_VOTES"
-id = "ee6374730a7841efb9b0eb1a7a77100f"
