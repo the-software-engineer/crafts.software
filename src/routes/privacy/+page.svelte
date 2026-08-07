@@ -21,13 +21,14 @@ function handleEmailClick() {
     <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
       Privacy Policy
     </h1>
-    <p class="mt-2 text-sm text-gray-500">Effective date: 20 July 2026</p>
+    <p class="mt-2 text-sm text-gray-500">Effective date: 7 August 2026</p>
 
     <div class="mt-10 space-y-8 text-gray-700">
       <section>
         <h2 class="text-lg font-semibold text-gray-900">Who we are</h2>
         <p class="mt-2 leading-relaxed">
-          This site is run by The Software Engineer LTD, a UK company. This
+          This site is run by The Software Engineer LTD, a UK company. We are
+          registered with the ICO, registration number ZC208439. This
           policy covers crafts.software and its subdomain project sites (for
           example landing pages for individual products or ideas built by
           the company).
