@@ -39,3 +39,9 @@ Pushes to `main` deploy to Cloudflare Pages via `.github/workflows/deploy.yml`.
 Every other branch gets a preview deployment via `.github/workflows/preview.yml`,
 with the URL posted as a PR comment. See `wrangler.toml` for the Pages project
 config.
+
+The only GitHub secret is the org-level `OP_SERVICE_ACCOUNT_TOKEN`; it is what reads
+1Password. Both workflows load `CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN` from 1Password
+(`github actions - pages deployment`, vault `TSE Systems`, field `credential`) in the
+deploying job, then check the load actually resolved before using it. This item is
+shared across landing-template and its forks; this repo does not hold its own copy.

@@ -30,17 +30,35 @@ jobs:
       - name: Build
         run: bun run build
 
+      # The one credential this deploy uses comes from 1Password, addressed by
+      # a reference committed here. OP_SERVICE_ACCOUNT_TOKEN is the
+      # organisation's one GitHub secret, because it is what reads 1Password.
+      - uses: 1password/load-secrets-action@v5
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN: op://TSE Systems/github actions - pages deployment/credential
+
+      # load-secrets-action exits 0 when `op env ls` recognises no reference,
+      # so an unaddressable title exports nothing and the deploy ships a blank
+      # credential with every step green.
+      - name: Check every reference resolved
+        run: |
+          set -euo pipefail
+          [ -n "${CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN:-}" ] || { echo "::error::CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN did not load from 1Password"; exit 1; }
+
       - name: Create Pages project if needed
         uses: cloudflare/wrangler-action@v3
         continue-on-error: true
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN }}
+          apiToken: ${{ env.CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           command: pages project create crafts-software --production-branch=main
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN }}
+          apiToken: ${{ env.CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy --commit-dirty=true
