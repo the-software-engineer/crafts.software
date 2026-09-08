@@ -29,6 +29,8 @@ jobs:
 
       - name: Build
         run: bun run build
+        env:
+          BUILD_VERSION: ${{ github.sha }}
 
       # The one credential this deploy uses comes from 1Password, addressed by
       # a reference committed here. OP_SERVICE_ACCOUNT_TOKEN is the

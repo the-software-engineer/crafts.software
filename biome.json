@@ -54,6 +54,7 @@
 		"includes": [
 			"**",
 			"!**/.svelte-kit",
+			"!vendor",
 			"!**/.wrangler",
 			"!**/node_modules",
 			"!**/build",
