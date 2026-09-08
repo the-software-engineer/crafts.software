@@ -29,5 +29,24 @@ jobs:
       - name: Type check
         run: bun run check
 
+      - name: Verify health contract vendor
+        run: bun run health:verify-vendor
+
       - name: Build
         run: bun run build
+        env:
+          BUILD_VERSION: ${{ github.sha }}
+
+      - name: Validate real health endpoint body
+        run: |
+          bunx wrangler pages dev .svelte-kit/cloudflare --port 8788 > /tmp/crafts-pages.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --output /tmp/livez http://127.0.0.1:8788/livez; then break; fi
+            sleep 1
+          done
+          test "$(cat /tmp/livez)" = "OK"
+          STATUS=$(curl --silent --output /tmp/healthz --write-out '%{http_code}' http://127.0.0.1:8788/healthz)
+          test "$STATUS" = "200"
+          node vendor/tse-health/scripts/validate-health.mjs --http-status "$STATUS" /tmp/healthz
