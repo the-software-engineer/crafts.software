@@ -41,7 +41,7 @@ with the URL posted as a PR comment. See `wrangler.toml` for the Pages project
 config.
 
 The only GitHub secret is the org-level `OP_SERVICE_ACCOUNT_TOKEN`; it is what reads
-1Password. Both workflows load `CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN` from 1Password
-(`github actions - pages deployment`, vault `TSE Systems`, field `credential`) in the
-deploying job, then check the load actually resolved before using it. This item is
-shared across landing-template and its forks; this repo does not hold its own copy.
+1Password. Both workflows use the shared load action to fetch and check
+`CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN` (`github actions - pages deployment`, vault
+`TSE Systems`, field `credential`). This item is shared across landing-template
+and its forks; this repo does not hold its own copy.
