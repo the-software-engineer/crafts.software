@@ -29,6 +29,9 @@ jobs:
       - name: Type check
         run: bun run check
 
+      - name: Newsroom client is what the pinned schema generates
+        run: bun run newsroom:check
+
       - name: Verify health contract vendor
         run: bun run health:verify-vendor
 

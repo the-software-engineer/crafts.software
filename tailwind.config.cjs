@@ -2,7 +2,11 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		extend: {
+			fontFamily: {
+				inter: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif']
+			}
+		}
 	},
 
 	plugins: []
