@@ -21,7 +21,7 @@ function handleEmailClick() {
     <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
       Privacy Policy
     </h1>
-    <p class="mt-2 text-sm text-gray-500">Effective date: 7 August 2026</p>
+    <p class="mt-2 text-sm text-gray-500">Effective date: 18 November 2026</p>
 
     <div class="mt-10 space-y-8 text-gray-700">
       <section>
@@ -52,8 +52,9 @@ function handleEmailClick() {
         </h2>
         <p class="mt-2 leading-relaxed">
           If you sign up to a waitlist or newsletter on one of our sites, we
-          store the email address you give us in Cloudflare KV, a data
-          store provided by Cloudflare. We use that email only to send you
+          store the email address you give us, with the date and the site
+          you signed up on. It is kept in our own newsletter system, in a
+          database we run in Germany. We use that email only to send you
           the thing you signed up for. We never sell it or share it with
           anyone else. You can unsubscribe at any time, either using the
           link in any email we send or by emailing us directly.
@@ -65,10 +66,13 @@ function handleEmailClick() {
           Third parties we use
         </h2>
         <p class="mt-2 leading-relaxed">
-          We use Cloudflare for hosting and content delivery, and an email
-          sending service to deliver newsletters. These providers process
-          data on our behalf to keep the sites running and to send the
-          emails you asked for.
+          We use Cloudflare for hosting, content delivery and sending
+          email. When you use a sign-up form, Cloudflare Turnstile checks
+          that a person, not a bot, is signing up; it looks at details of
+          your browser and connection to do that. We use Unikraft Cloud to
+          run our newsletter system and its database. These providers
+          process data on our behalf to keep the sites running and to send
+          the emails you asked for.
         </p>
       </section>
 

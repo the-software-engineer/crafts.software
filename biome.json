@@ -58,7 +58,9 @@
 			"!**/.wrangler",
 			"!**/node_modules",
 			"!**/build",
-			"!**/static"
+			"!**/static",
+			"!**/src/lib/newsroom/types.ts",
+			"!**/src/lib/newsroom/openapi.json"
 		]
 	}
 }
