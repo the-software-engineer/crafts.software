@@ -75,7 +75,10 @@ const focusRing =
 
 <svelte:head>
   <title>crafts.software - The Software Engineer Ltd.</title>
-  <meta name="description" content="The Software Engineer Ltd. Software consultancy by Theo Gregory." />
+  <meta
+    name="description"
+    content="Ship small, learn fast. The Software Engineer Ltd. builds and tests ideas with real people while the world keeps changing."
+  />
   <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin="anonymous" />
 </svelte:head>
 
@@ -92,7 +95,7 @@ const focusRing =
       height="36"
       class="mr-u8 mt-u5 inline-block h-u24 w-u24 rounded-u6 align-top md:mr-u10 md:mt-u10 md:h-u36 md:w-u36 md:rounded-u8"
     /><span
-      class="underline decoration-[length:calc(2*var(--u))] underline-offset-[calc(5*var(--u))] transition-colors hover:decoration-gray-400 md:underline-offset-[calc(7*var(--u))]"
+      class="underline decoration-[length:calc(2*var(--u,1px))] underline-offset-[calc(5*var(--u,1px))] transition-colors hover:decoration-gray-400 md:underline-offset-[calc(7*var(--u,1px))]"
       >{item.name}</span
     ></a
   >
@@ -147,7 +150,7 @@ const focusRing =
   <main class="flex flex-col gap-u40 pb-u64 pt-u56 md:gap-u56 md:pb-u96 md:pt-u96">
     <!-- The board sets each word apart by a fixed gap (6px, 11px on desktop), a little wider than a space. -->
     <p
-      class="text-u22 leading-u34 tracking-[-0.01em] text-gray-700 [word-spacing:calc(1*var(--u))] md:-my-u2 md:text-u36 md:leading-u56 md:tracking-[-0.015em] md:[word-spacing:calc(3.1*var(--u))]"
+      class="text-u22 leading-u34 tracking-[-0.01em] text-gray-700 [word-spacing:calc(1*var(--u,1px))] md:-my-u2 md:text-u36 md:leading-u56 md:tracking-[-0.015em] md:[word-spacing:calc(3.1*var(--u,1px))]"
     >
       On the side, I make small things I've wanted for years. So far:
       {@render product(products.deliMeet)} for livelier Google Meets,
