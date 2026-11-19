@@ -16,11 +16,11 @@ Personal Sites", page "crafts.software"). Change it in Paper first. It is
 prerendered; only `/api/subscribe` runs as a Pages Function.
 
 - The page is the board scaled to fit one screen. `--u` (one board pixel) is
-  set in `src/routes/+page.svelte`, and a class like `pt-u88` or `text-u36` is
-  that many board pixels (`tailwind.config.cjs`). Write board values, not CSS
-  pixels.
+  set in `src/routes/+page.svelte`, and a class like `pt-u80` or `text-u45` is
+  that many board pixels, from 0 to 1200 (`tailwind.config.cjs`). Write board
+  values, not CSS pixels.
 - Desktop (768px and wider) scales everything, from 0.55 up to board size. It
-  fits any window at least 617px tall.
+  fits any window at least 577px tall.
 - Mobile keeps the buttons, the field, 14px text and the 24px gutters at board
   size, and scales the rest, never below a 16px sentence. The sentence may wrap
   to fewer lines than the board. Screens shorter than about 790px (814px at

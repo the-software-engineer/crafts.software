@@ -89,68 +89,68 @@ const focusRing =
     ><img
       src="/products/{item.icon}-72.png"
       srcset="/products/{item.icon}-48.png 48w, /products/{item.icon}-72.png 72w, /products/{item.icon}-108.png 108w"
-      sizes="(min-width: 768px) 36px, 24px"
+      sizes="(min-width: 768px) 44px, 24px"
       alt=""
-      width="36"
-      height="36"
-      class="mr-u8 mt-u5 inline-block h-u24 w-u24 rounded-u6 align-top md:mr-u10 md:mt-u10 md:h-u36 md:w-u36 md:rounded-u8"
+      width="44"
+      height="44"
+      class="mr-u8 mt-u5 inline-block h-u24 w-u24 rounded-u6 align-top md:mr-u12 md:mt-u12 md:h-u44 md:w-u44 md:rounded-u10"
     /><span
-      class="underline decoration-[length:calc(2*var(--u,1px))] underline-offset-[calc(5*var(--u,1px))] transition-colors hover:decoration-gray-400 md:underline-offset-[calc(7*var(--u,1px))]"
+      class="underline decoration-[length:calc(2*var(--u,1px))] underline-offset-[calc(5*var(--u,1px))] transition-colors hover:decoration-gray-400 md:underline-offset-[calc(8*var(--u,1px))]"
       >{item.name}</span
     ></a
   >
 {/snippet}
 
-<div class="board mx-auto w-full px-6 font-inter antialiased [font-synthesis:none] md:w-u960 md:px-0">
-  <header class="flex flex-col items-start gap-u28 pt-u48 md:gap-u32 md:pt-u88">
-    <div>
-      <img src="/icon-rounded.svg" alt="" width="80" height="80" class="h-u64 w-u64 md:h-u80 md:w-u80" />
+<div class="board mx-auto w-full px-6 font-inter antialiased [font-synthesis:none] md:w-u1200 md:px-0">
+  <header class="flex flex-col items-start gap-u20 pt-u48 md:flex-row md:items-center md:gap-u32 md:pt-u80">
+    <img src="/icon-rounded.svg" alt="" width="116" height="116" class="h-u64 w-u64 shrink-0 md:h-u116 md:w-u116" />
+    <div class="flex flex-col items-start gap-u28 md:gap-u24">
       <h1
-        class="mt-u20 text-balance text-u28 font-bold leading-u34 tracking-[-0.025em] text-gray-900 md:mt-u24 md:text-u48 md:leading-u48"
+        class="text-balance text-u28 font-bold leading-u34 tracking-[-0.025em] text-gray-900 md:text-u48 md:leading-u48"
       >
         The Software Engineer Ltd.
       </h1>
+      <nav aria-label="Newsletter and social links" class="flex flex-col items-start gap-u12 md:flex-row md:items-center">
+        <a
+          href={newsletterHref}
+          class="inline-flex h-11 items-center gap-2 rounded-lg bg-gray-900 px-5 text-sm font-medium leading-[18px] text-white transition-colors hover:bg-gray-800 md:h-u44 md:gap-u8 md:rounded-u8 md:px-u20 md:text-u14 md:leading-u18 {focusRing}"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class="shrink-0 md:h-u16 md:w-u16">
+            <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2" />
+            <path
+              d="M22 7l-10 6L2 7"
+              fill="none"
+              stroke="#FFFFFF"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Newsletter
+        </a>
+        <ul class="flex gap-2 md:gap-u12">
+          {#each socials as social (social.name)}
+            <li>
+              <a
+                href={social.href}
+                aria-label={social.name}
+                class="flex h-11 w-11 items-center justify-center rounded-lg border border-gray-300 bg-white transition-colors hover:border-gray-400 hover:bg-gray-50 md:h-u44 md:w-u44 md:rounded-u8 {focusRing}"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class="md:h-u16 md:w-u16">
+                  <path d={social.path} fill="#374151" />
+                </svg>
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </nav>
     </div>
-    <nav aria-label="Newsletter and social links" class="flex flex-col items-start gap-u12 md:flex-row md:items-center">
-      <a
-        href={newsletterHref}
-        class="inline-flex h-11 items-center gap-2 rounded-lg bg-gray-900 px-5 text-sm font-medium leading-[18px] text-white transition-colors hover:bg-gray-800 md:h-u44 md:gap-u8 md:rounded-u8 md:px-u20 md:text-u14 md:leading-u18 {focusRing}"
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class="shrink-0 md:h-u16 md:w-u16">
-          <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2" />
-          <path
-            d="M22 7l-10 6L2 7"
-            fill="none"
-            stroke="#FFFFFF"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        Newsletter
-      </a>
-      <ul class="flex gap-2 md:gap-u12">
-        {#each socials as social (social.name)}
-          <li>
-            <a
-              href={social.href}
-              aria-label={social.name}
-              class="flex h-11 w-11 items-center justify-center rounded-lg border border-gray-300 bg-white transition-colors hover:border-gray-400 hover:bg-gray-50 md:h-u44 md:w-u44 md:rounded-u8 {focusRing}"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class="md:h-u16 md:w-u16">
-                <path d={social.path} fill="#374151" />
-              </svg>
-            </a>
-          </li>
-        {/each}
-      </ul>
-    </nav>
   </header>
 
-  <main class="flex flex-col gap-u40 pb-u64 pt-u56 md:gap-u56 md:pb-u96 md:pt-u96">
-    <!-- The board sets each word apart by a fixed gap (6px, 11px on desktop), a little wider than a space. -->
+  <main class="flex flex-col gap-u40 pb-u64 pt-u56 md:gap-u56 md:pb-u80 md:pt-u80">
+    <!-- The board sets each word apart by a fixed gap (6px, 13px on desktop), a little wider than a space. -->
     <p
-      class="text-u22 leading-u34 tracking-[-0.01em] text-gray-700 [word-spacing:calc(1*var(--u,1px))] md:-my-u2 md:text-u36 md:leading-u56 md:tracking-[-0.015em] md:[word-spacing:calc(3.1*var(--u,1px))]"
+      class="text-u22 leading-u34 tracking-[-0.01em] text-gray-700 [word-spacing:calc(1*var(--u,1px))] md:-my-u2 md:text-u45 md:leading-u68 md:tracking-[-0.015em] md:[word-spacing:calc(2.9*var(--u,1px))]"
     >
       On the side, I make small things I've wanted for years. So far:
       {@render product(products.deliMeet)} for livelier Google Meets,
@@ -161,7 +161,7 @@ const focusRing =
     </p>
 
     <section class="flex flex-col gap-u20 border-t border-gray-300 pt-u32 md:gap-u24 md:pt-u40">
-      <p class="text-u18 leading-u28 tracking-[-0.005em] text-gray-700 md:max-w-u704 md:text-u24 md:leading-u36 md:tracking-[-0.01em]">
+      <p class="text-u18 leading-u28 tracking-[-0.005em] text-gray-700 md:text-u28 md:leading-u40 md:tracking-[-0.01em]">
         The big item is under wraps. Newsletter readers hear about it first.
       </p>
       <SubscribeForm />
@@ -182,7 +182,8 @@ const focusRing =
 <style>
   /*
    * --u is one pixel of the Paper board, sized so the board fits the screen.
-   * Desktop board: 1112px scale; the stripe and divider (5px) do not.
+   * Desktop board: 1040px scale; the stripe and divider (5px) do not. The
+   * width term keeps 48px gutters beside the 1200px column.
    * Mobile board: 900px scale; the stripe, divider, controls and footer line
    * (209px) do not. The mobile width term keeps the sentence within the
    * board's 11 lines, so 900 is an upper bound. 8px of slack absorbs rounding.
@@ -195,7 +196,7 @@ const focusRing =
 
   @media (min-width: 768px) {
     .board {
-      --u: clamp(0.55px, min(100vw / 1056, (100svh - 13px) / 1112), 1px);
+      --u: clamp(0.55px, min(100vw / 1296, (100svh - 13px) / 1040), 1px);
       --min-text: 12px;
     }
   }
