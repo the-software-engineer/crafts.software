@@ -143,9 +143,9 @@ onDestroy(() => {
 });
 </script>
 
-<div>
+<div class="relative">
   <form
-    class="flex flex-col gap-3 md:flex-row md:items-center"
+    class="flex flex-col gap-u12 md:flex-row md:items-center"
     onsubmit={submit}
     onfocusin={() => void startWidget()}
   >
@@ -160,19 +160,19 @@ onDestroy(() => {
       aria-invalid={failure === CHECK_EMAIL ? 'true' : undefined}
       aria-describedby={failure ? 'subscribe-failure' : undefined}
       readonly={status === 'done'}
-      class="h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base leading-6 text-gray-900 placeholder:text-gray-500 focus-visible:border-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 aria-[invalid=true]:border-red-700 md:w-[360px]"
+      class="h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base leading-6 text-gray-900 placeholder:text-gray-500 focus-visible:border-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 aria-[invalid=true]:border-red-700 md:h-u48 md:w-u360 md:rounded-u8 md:px-u16 md:text-u16 md:leading-u24"
     />
     <button
       type="submit"
       disabled={status !== 'idle'}
       aria-label={status === 'done' ? 'Subscribed' : undefined}
-      class="relative inline-flex h-12 w-full items-center justify-center rounded-lg bg-gray-900 px-6 text-[15px] font-medium leading-5 text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 enabled:hover:bg-gray-800 disabled:cursor-default md:w-auto"
+      class="relative inline-flex h-12 w-full items-center justify-center rounded-lg bg-gray-900 px-6 text-[15px] font-medium leading-5 text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 enabled:hover:bg-gray-800 disabled:cursor-default md:h-u48 md:w-auto md:rounded-u8 md:px-u24 md:text-u15 md:leading-u20"
       class:opacity-80={status === 'sending'}
     >
       <span class:invisible={status === 'done'}>Subscribe</span>
       {#if status === 'done'}
         <svg
-          class="absolute h-5 w-5"
+          class="absolute h-5 w-5 md:h-u20 md:w-u20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -188,10 +188,11 @@ onDestroy(() => {
   <div bind:this={container} bind:clientHeight={widgetHeight} class:mt-3={widgetHeight > 0}></div>
   <p class="sr-only" role="status">{status === 'done' ? 'Subscribed' : ''}</p>
   {#if failure}
+    <!-- Sits in the space under the form, so the page stays on one screen. -->
     <p
       id="subscribe-failure"
       role="alert"
-      class="mt-3 text-sm leading-5 text-red-700"
+      class="absolute inset-x-0 top-full mt-3 text-sm leading-5 text-red-700"
     >
       {failure}
     </p>
