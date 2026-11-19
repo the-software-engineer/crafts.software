@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 // u<N> is N pixels of the Paper board, scaled by --u (set on the home page).
 const boardPx = (n) => `calc(${n} * var(--u, 1px))`;
-const range = Array.from({ length: 961 }, (_, n) => n);
+const range = Array.from({ length: 1201 }, (_, n) => n);
 const board = Object.fromEntries(range.map((n) => [`u${n}`, boardPx(n)]));
 
 // Inter's optical size follows the font size, so smaller text sets wider and

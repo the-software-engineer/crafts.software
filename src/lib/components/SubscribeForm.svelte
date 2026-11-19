@@ -160,13 +160,13 @@ onDestroy(() => {
       aria-invalid={failure === CHECK_EMAIL ? 'true' : undefined}
       aria-describedby={failure ? 'subscribe-failure' : undefined}
       readonly={status === 'done'}
-      class="h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base leading-6 text-gray-900 placeholder:text-gray-500 focus-visible:border-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 aria-[invalid=true]:border-red-700 md:h-u48 md:w-u360 md:rounded-u8 md:px-u16 md:text-u16 md:leading-u24"
+      class="h-12 w-full rounded-lg border border-gray-300 bg-white px-4 text-base leading-6 text-gray-900 placeholder:text-gray-500 focus-visible:border-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 aria-[invalid=true]:border-red-700 md:h-u52 md:w-u400 md:rounded-u8 md:px-u16 md:text-u16 md:leading-u24"
     />
     <button
       type="submit"
       disabled={status !== 'idle'}
       aria-label={status === 'done' ? 'Subscribed' : undefined}
-      class="relative inline-flex h-12 w-full items-center justify-center rounded-lg bg-gray-900 px-6 text-[15px] font-medium leading-5 text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 enabled:hover:bg-gray-800 disabled:cursor-default md:h-u48 md:w-auto md:rounded-u8 md:px-u24 md:text-u15 md:leading-u20"
+      class="relative inline-flex h-12 w-full items-center justify-center rounded-lg bg-gray-900 px-6 text-[15px] font-medium leading-5 text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 enabled:hover:bg-gray-800 disabled:cursor-default md:h-u52 md:w-auto md:rounded-u8 md:px-u24 md:text-u16 md:leading-u20"
       class:opacity-80={status === 'sending'}
     >
       <span class:invisible={status === 'done'}>Subscribe</span>
