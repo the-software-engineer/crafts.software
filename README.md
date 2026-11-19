@@ -88,11 +88,11 @@ The only GitHub secret is the org-level `OP_SERVICE_ACCOUNT_TOKEN`; it is what r
   shares gregory.sh's. Theo waived the one-token-per-site rule for this on
   2026-11-18 (TSE-873). Rotating it means redeploying gregory.sh, crafts.software
   and the-newsroom-lists together. `deploy.yml` writes it to both Pages
-  environments before deploying; if that step fails, the deploy goes on with a
-  warning.
+  environments.
+- `TURNSTILE_SECRET_KEY` (`crafts.software - turnstile secret key`, field
+  `credential`), deploy only. The widget's server-side secret. `deploy.yml`
+  writes it to the production Pages environment only, so previews keep
+  Cloudflare's test keys.
 
-`TURNSTILE_SECRET_KEY` is not wired yet. To wire it: read the widget's secret
-with the Cloudflare provider token, store it in a `TSE Systems` item named
-`crafts.software - turnstile secret key` (field `credential`), add that reference
-to the load step in `deploy.yml`, and set it as a production Pages secret next to
-`NEWSROOM_LISTS_TOKEN`. Until then the form refuses every sign-up.
+`deploy.yml` sets these Pages secrets before deploying. If that step fails, the
+deploy goes on with a warning.

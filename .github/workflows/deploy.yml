@@ -41,6 +41,7 @@ jobs:
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
           CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN: op://TSE Systems/github actions - pages deployment/credential
+          TURNSTILE_SECRET_KEY: op://TSE Systems/crafts.software - turnstile secret key/credential
           # Shared with gregory.sh by Theo's waiver of 2026-11-18 (TSE-873): the
           # newsroom gives each list one token, and this site writes to his list.
           NEWSROOM_LISTS_TOKEN: op://TSE Systems/gregory.sh - the-newsroom-lists bearer token/token
@@ -79,21 +80,24 @@ jobs:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           command: pages project create crafts-software --production-branch=main
 
-      # Previews get the token too: their Turnstile test keys never pass the
-      # server check, so a preview cannot write to the list. A failure here
-      # must not hold back the page; sign-ups answer 503 until it is fixed.
-      - name: Set the newsroom lists token as a Pages secret
+      # Previews get the lists token but not the Turnstile secret: they use
+      # Cloudflare's test keys, so they cannot write to the list. A failure
+      # here must not hold back the page.
+      - name: Set Pages secrets
         continue-on-error: true
         env:
           CLOUDFLARE_API_TOKEN: ${{ env.CLOUDFLARE_PAGES_DEPLOYMENT_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          for target in production preview; do
-            printf '%s' "$NEWSROOM_LISTS_TOKEN" | bunx wrangler pages secret put NEWSROOM_LISTS_TOKEN \
-              --project-name crafts-software --env "$target" \
-              || { echo "::warning::NEWSROOM_LISTS_TOKEN was not set on the $target environment"; exit 1; }
-          done
+          put() {
+            printf '%s' "${!1}" | bunx wrangler pages secret put "$1" \
+              --project-name crafts-software --env "$2" \
+              || { echo "::warning::$1 was not set on the $2 environment"; exit 1; }
+          }
+          put TURNSTILE_SECRET_KEY production
+          put NEWSROOM_LISTS_TOKEN production
+          put NEWSROOM_LISTS_TOKEN preview
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
